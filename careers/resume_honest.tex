@@ -1,0 +1,157 @@
+% =============================================================
+% Yashas K — Honest Resume
+% This resume makes ONLY claims the applicant can defend in interview.
+% Target: Software Engineering Internship (Summer 2027)
+% Format: ATS-friendly single-column
+% Compile: tectonic resume.tex
+% =============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper, top=1.8cm, bottom=1.8cm, left=2cm, right=2cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    pdftitle={Yashas K - Resume},
+    pdfauthor={Yashas K}
+}
+
+\titleformat{\section}{\large\bfseries\color{black}}{}{0em}{}[\vspace{-0.4em}\rule{\textwidth}{0.5pt}]
+\titlespacing{\section}{0pt}{1.2em}{0.4em}
+
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.15em, topsep=0.2em, parsep=0pt}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% =============================================================
+% Header
+% =============================================================
+\begin{center}
+{\LARGE \textbf{Yashas K}}\\[3pt]
+{\small Engineering Student $\cdot$ Bangalore, India\\[2pt]
+\href{mailto:yashask2006@gmail.com}{yashask2006@gmail.com} $\cdot$
+GitHub: \href{https://github.com/Yashas-K-Gangatkar}{github.com/Yashas-K-Gangatkar}}
+\end{center}
+
+\vspace{4pt}
+
+% =============================================================
+% Objective
+% =============================================================
+\section*{Objective}
+
+2nd-year engineering student with independent research experience in data structure design and information retrieval. Seeking a software engineering internship where I can contribute to retrieval, indexing, or content pipeline infrastructure while continuing to develop my implementation skills. Honest about my current skill level: I design systems and drive research direction; I am actively learning Rust and Python to fully own my implementations.
+
+% =============================================================
+% Skills (honest)
+% =============================================================
+\section*{Skills}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Strong} & Systems design, algorithm analysis, measurement methodology, technical writing, research documentation \\
+\textbf{Learning} & Rust (beginner, actively studying via The Rust Programming Language + Rustlings), Python (intermediate) \\
+\textbf{Tools} & Git, GitHub, LaTeX, basic shell scripting \\
+\textbf{Concepts} & Binary tries, LZ77 compression, LOUDS succinct encoding, suffix trees (theoretical), FAISS/ANN (theoretical), RAG architectures \\
+\end{tabularx}
+
+% =============================================================
+% Featured Project (honest framing)
+% =============================================================
+\section*{Featured Project: AXIOM --- Binary Substring Graph for Zero-Error Retrieval}
+\href{https://github.com/Yashas-K-Gangatkar/axiom-3d}{\textbf{github.com/Yashas-K-Gangatkar/axiom-3d}} $\cdot$ October 2026
+
+\textit{Independent research project on exact-match retrieval. Designed the architecture; implementation was developed with AI assistance.}
+
+\textbf{My role (what I can defend in an interview):}
+\begin{itemize}
+\item Designed the three-layer architecture: V1 prefix trie, V2 LZ77 macro graph, V3.1 LOUDS succinct trie
+\item Defined the honest measurement methodology: real Gutenberg text at 1/10/100\,MB, 5 adversarial fake queries per size
+\item Specified the trade-offs: 212$\times$ bloat in V1, 94\% reduction in V3.1, $O(N \cdot L)$ substring search complexity
+\item Wrote the IEEE-format paper draft (8 pages, 14 references), including the honest limitations section
+\item Drove the research direction: zero-error verification as a complement to ANN-based retrieval in RAG pipelines
+\end{itemize}
+
+\textbf{What I am currently learning to fully own:}
+\begin{itemize}
+\item Rust ownership, borrowing, and lifetimes (to read and modify the implementation)
+\item LOUDS rank/select implementation details (to extend V3.1)
+\item Ukkonen's suffix tree construction (the next planned upgrade)
+\end{itemize}
+
+\textbf{Honest limitations of the project:}
+\begin{itemize}
+\item V2 is 38$\times$ worse than \texttt{xz -9} on compression ratio (no entropy coding)
+\item Substring search is $O(N \cdot L)$, not $O(L)$ --- suffix-tree upgrade is future work
+\item Single-threaded build (no parallelism yet)
+\end{itemize}
+
+% =============================================================
+% Education
+% =============================================================
+\section*{Education}
+
+\textbf{Bachelor of Engineering, Computer Science} \hfill 2024 -- 2028 (expected)\\
+Engineering College, Bangalore, India \hfill 2nd year (current)
+
+\begin{itemize}
+\item Independent research focus: data structures, information retrieval, ML infrastructure
+\item Currently studying: Rust (via The Rust Programming Language book), algorithms (CLRS), ML systems design
+\end{itemize}
+
+% =============================================================
+% What I'm working on now
+% =============================================================
+\section*{Currently Learning (October 2026)}
+
+\begin{itemize}
+\item \textbf{Rust}: Working through The Rust Programming Language (chapters 1--10 complete) and Rustlings exercises. Goal: rewrite AXIOM V1 from scratch in Rust by December 2026.
+\item \textbf{Algorithms}: Reviewing CLRS chapters on tries, suffix trees, and LZ77 to deepen theoretical understanding of AXIOM's design.
+\item \textbf{ML systems}: Reading FAISS paper and HNSW paper to understand the ANN landscape AXIOM is positioned against.
+\end{itemize}
+
+% =============================================================
+% Target roles
+% =============================================================
+\section*{What I'm Looking For}
+
+\begin{itemize}
+\item \textbf{Summer 2027 internship} (3 months, May--August) in software engineering, with focus on:
+  \begin{itemize}
+  \item Backend systems / infrastructure
+  \item Data engineering / pipelines
+  \item Search / retrieval / indexing
+  \end{itemize}
+\item \textbf{Open to}: ETH Student Summer Research Fellowship (apply November 2026), Disney Streaming Zurich SWE intern, Microsoft Zurich SWE intern, or any role where I can both contribute and continue learning
+\item \textbf{Not yet ready for}: Senior SWE roles, roles requiring 2+ years of Rust production experience, roles requiring ML research scientist credentials
+\end{itemize}
+
+% =============================================================
+% Honest positioning
+% =============================================================
+\section*{How I Work}
+
+\begin{itemize}
+\item I design systems and document them rigorously, including their failure modes
+\item I use AI assistance (Z.ai/GLM, GitHub Copilot) for implementation, then study the generated code to learn from it
+\item I am honest about what I know and what I'm learning --- I will not claim a skill I cannot defend
+\item I write things down: every project I work on has a paper draft, a README, and a reproducibility guide
+\end{itemize}
+
+\vspace{6pt}
+\hrule
+\vspace{4pt}
+{\footnotesize All claims in this resume are verifiable in my GitHub repositories. I am happy to walk through any project in an interview, including the parts I am still learning.}
+
+\end{document}
