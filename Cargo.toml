@@ -13,6 +13,14 @@ categories = ["data-structures", "algorithms", "text-processing"]
 name = "axiom_stress"
 path = "src/bin/axiom_stress.rs"
 
+[[bin]]
+name = "axiom_v3"
+path = "src/bin/axiom_v3.rs"
+
+[[bin]]
+name = "axiom_v31"
+path = "src/bin/axiom_v31.rs"
+
 [profile.release]
 opt-level = 3
 lto = "thin"

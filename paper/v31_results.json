@@ -1,0 +1,7 @@
+{
+  "axiom_v31_results": true,
+  "results": [
+    {"label":"1 MB corpus","src_bytes":1048576,"v31_nodes":8222675,"v31_louds_bytes":2312629,"v31_structural_bytes":4625259,"v31_file_bytes":12777927,"v31_bloat_ratio":12.185981,"v31_needle_found":true,"v31_deep_found":true,"v31_halluc_rate":0.0000,"v31_build_time_ms":614},
+    {"label":"10 MB corpus","src_bytes":10485760,"v31_nodes":81605203,"v31_louds_bytes":22951469,"v31_structural_bytes":45902947,"v31_file_bytes":127448615,"v31_bloat_ratio":12.154447,"v31_needle_found":true,"v31_deep_found":true,"v31_halluc_rate":0.0000,"v31_build_time_ms":10269}
+  ]
+}
