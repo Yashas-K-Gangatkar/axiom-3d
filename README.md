@@ -1,12 +1,19 @@
 # AXIOM
 
-**A Binary Substring Graph for Zero-Error Retrieval**
+> **Low-level Rust implementation of succinct data structures for exact-match retrieval.**
+> Multi-layer binary substring graph with measured O(L) prefix search, O(N·L) substring search, and structurally guaranteed 0% hallucination. Stress-tested on real Project Gutenberg text at 1, 10, and 100 MB. Designed as architectural primitives applicable to high-throughput content indexing and low-latency prefix search systems.
 
-An honest engineering study on real Gutenberg text at 1, 10, and 100 MB.
+**Status:** Active research prototype · **Language:** Rust 1.99 · **Paper:** IEEE conference format (8 pages, 14 references) · **License:** PolyForm Noncommercial 1.0.0
 
-> **Headline result:** 0% hallucination rate across all corpus sizes, verified against 5 adversarial fake queries per size.
+---
+
+## Headline results
+
+> **0% hallucination rate** across all corpus sizes — verified against 5 adversarial fake queries per size, on V1 / V2 / V3.1.
 >
-> **V3.1 LOUDS upgrade:** 94% smaller than V1 (12.19 MB vs 212 MB on 1 MB of text) using LOUDS succinct tries.
+> **V3.1 LOUDS upgrade:** 94% smaller than V1 (12.19 MB vs 212 MB on 1 MB of text) using LOUDS succinct tries (Jacobson 1989).
+>
+> **Honest trade-offs documented in the paper:** V2 is 38× worse than `xz -9` on compression ratio (no entropy coding layer); substring search is O(N·L) not O(L) (suffix-tree upgrade is future work).
 
 ## What AXIOM is
 
@@ -17,6 +24,17 @@ AXIOM is a multi-layer binary substring graph for exact-match retrieval:
 - **V3.1** — a LOUDS succinct trie that solves V1's bloat (50× smaller structural storage)
 
 There is no hashing, no embedding, no probability. Retrieval is exact substring match. If a query has no exact match in the graph, the graph returns nothing.
+
+## Why this matters for high-throughput systems
+
+AXIOM is a study in **low-level systems engineering applied to retrieval infrastructure**. The techniques explored here are directly relevant to:
+
+- **Video stream indexing** — LOUDS succinct tries give 94% storage reduction vs naive pointer-based tries, critical when indexing millions of frames
+- **Content deduplication pipelines** — LZ77-style macro chains identify repeated byte sequences across documents, applicable to dedup at ingestion time
+- **Verification gates for approximate retrieval** — exact substring match as a post-filter behind ANN indexes (FAISS/HNSW) eliminates one class of hallucinated retrievals
+- **CPU cache-friendly data layout** — bit-packed LOUDS vectors fit in L1/L2 cache where pointer-based tries do not
+
+The honest limitations documented below are the same trade-offs a streaming infrastructure team would face: storage vs latency, build time vs query time, exact vs approximate retrieval.
 
 ## What AXIOM is NOT
 

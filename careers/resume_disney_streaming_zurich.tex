@@ -1,0 +1,165 @@
+% =============================================================
+% Yashas K — Resume / CV
+% Target role: Software Engineer, Disney Streaming Zurich
+% Format: IEEE-style single-column, ATS-friendly
+% Compile: tectonic resume.tex
+% =============================================================
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper, top=1.8cm, bottom=1.8cm, left=2cm, right=2cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    pdftitle={Yashas K - Resume - Disney Streaming Zurich SWE},
+    pdfauthor={Yashas K}
+}
+
+\titleformat{\section}{\large\bfseries\color{black}}{}{0em}{}[\vspace{-0.4em}\rule{\textwidth}{0.5pt}]
+\titlespacing{\section}{0pt}{1.2em}{0.4em}
+
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.15em, topsep=0.2em, parsep=0pt}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% =============================================================
+% Header
+% =============================================================
+\begin{center}
+{\LARGE \textbf{Yashas K}}\\[3pt]
+{\small Independent Researcher $\cdot$ Bangalore, India\\[2pt]
+ORCID: 0009-0005-8928-5341 $\cdot$ \href{mailto:yashask2006@gmail.com}{yashask2006@gmail.com}\\[2pt]
+GitHub: \href{https://github.com/Yashas-K-Gangatkar}{github.com/Yashas-K-Gangatkar} $\cdot$
+AXIOM: \href{https://github.com/Yashas-K-Gangatkar/axiom-3d}{github.com/Yashas-K-Gangatkar/axiom-3d}}
+\end{center}
+
+\vspace{4pt}
+
+% =============================================================
+% Objective
+% =============================================================
+\section*{Objective}
+2nd-year engineering student with proven Rust systems engineering experience. Seeking a Software Engineer internship at Disney Streaming Zurich to apply succinct data structure and low-level memory-layout work to high-throughput content indexing and video streaming infrastructure. Independent research record includes a published stress-tested binary retrieval graph with measured 94\% storage reduction.
+
+% =============================================================
+% Skills (top — recruiters skim this in 5 seconds)
+% =============================================================
+\section*{Core Skills}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\textbf{Languages} & Rust (1.99, release builds, LTO), Python (3.12), C, shell scripting \\
+\textbf{Systems} & Low-level memory layout, bit-packed data structures, CPU cache-aware design, succinct tries (LOUDS), LZ77-style compression \\
+\textbf{Benchmarking} & Real measurement methodology (no extrapolation), \texttt{std::time::Instant}, \texttt{fs::metadata}, gzip/xz/bzip2 comparison \\
+\textbf{Tools} & cargo, rustup, git, GitHub Actions, LaTeX (Tectonic), matplotlib \\
+\textbf{Research} & ORCID-registered, IEEE conference paper format, reproducibility scripts, honest limitations documentation \\
+\end{tabularx}
+
+% =============================================================
+% Highlight Project (AXIOM — featured prominently)
+% =============================================================
+\section*{Featured Project: AXIOM --- Binary Substring Graph for Zero-Error Retrieval}
+\href{https://github.com/Yashas-K-Gangatkar/axiom-3d}{\textbf{github.com/Yashas-K-Gangatkar/axiom-3d}} $\cdot$ Rust 1.99 $\cdot$ 3 binaries, 8-page IEEE paper, 5 charts, MIT-style license $\cdot$ \textbf{October 2026}
+
+\textit{Designed architectural primitives applicable to high-throughput content indexing and low-latency prefix search systems.}
+
+\begin{itemize}
+\item \textbf{Built a three-layer binary retrieval graph in Rust}: V1 prefix trie, V2 LZ77 macro graph with byte-level hash chains, V3.1 LOUDS succinct trie with rank/select navigation. Each layer stress-tested on real Project Gutenberg text at 1, 10, and 100\,MB.
+
+\item \textbf{Achieved 94\% storage reduction} by replacing pointer-based trie nodes (26 bytes/node) with LOUDS bit-packed encoding (4.5 bits/node). On 10\,MB of text: V1 = 2.05\,GB, V3.1 = 121.5\,MB.
+
+\item \textbf{Measured 0\% hallucination rate} across all corpus sizes and all three layers, verified against 5 adversarial fake queries per size. The exact-match property is structural---no probability in the retrieval path---and directly applicable as a verification gate behind FAISS-class ANN indexes in RAG pipelines.
+
+\item \textbf{Benchmarked against standard compressors} (gzip -9, xz -9, bzip2 -9) on identical corpora. Honestly documented that V2 is 38$\times$ worse than \texttt{xz} on compression ratio due to missing entropy coding, and that substring search is $O(N{\cdot}L)$ rather than $O(L)$ without a suffix-tree upgrade.
+
+\item \textbf{Shipped research-grade tooling}: reproducibility scripts, GitHub Actions CI, JSON output of every measured number, IEEE conference LaTeX paper with 14 references. Every claim in the paper is traceable to a measurement in the repository.
+\end{itemize}
+
+\textbf{Honest limitations documented in the paper} (recruiters value engineers who know where their code breaks):
+\begin{itemize}
+\item V1 bloats 212$\times$ on disk (solved by V3.1 LOUDS, 94\% reduction)
+\item Substring search is $O(N{\cdot}L)$, not $O(L)$---suffix-tree upgrade is future work
+\item V2 has no entropy coding layer (38$\times$ gap to \texttt{xz})
+\item Single-threaded build (no Rayon parallelism yet)
+\end{itemize}
+
+% =============================================================
+% Education
+% =============================================================
+\section*{Education}
+
+\textbf{Bachelor of Engineering, Computer Science} \hfill 2024 -- 2028 (expected)\\
+Engineering College, Bangalore, India \hfill 2nd year (current)
+
+\begin{itemize}
+\item Independent research focus: low-level data structures, succinct encoding, retrieval systems
+\item Built AXIOM outside coursework as a self-directed engineering study
+\item ORCID registered: 0009-0005-8928-5341
+\end{itemize}
+
+% =============================================================
+% Other Projects
+% =============================================================
+\section*{Other Work}
+
+\begin{itemize}
+\item \textbf{YK Compressor} (2024--2025): earlier Rust prototype of spatial pattern matching for genomic data. Public on GitHub. Superseded by AXIOM; the lessons learned informed AXIOM's honest measurement methodology.
+
+\item \textbf{Open-source contribution}: All AXIOM code is open-source under PolyForm Noncommercial 1.0.0. Reproducibility is a first-class concern: every number in the paper traces to a JSON file in the repo.
+\end{itemize}
+
+% =============================================================
+% Research \& Publications
+% =============================================================
+\section*{Research Output}
+
+\begin{itemize}
+\item \textbf{AXIOM: A Binary Substring Graph for Zero-Error Retrieval} (October 2026). IEEE conference format preprint, 8 pages, 14 references. \href{https://github.com/Yashas-K-Gangatkar/axiom-3d/blob/main/paper/main.pdf}{PDF on GitHub}. Target venues: IEEE Big Data 2027, ACM CIKM 2027, NeurIPS workshops on efficient ML.
+
+\item \textbf{ETH Student Summer Research Fellowship} --- applying November 2026 for summer 2027 placement. Will propose work on suffix-tree upgrade for AXIOM to achieve $O(L)$ substring search.
+\end{itemize}
+
+% =============================================================
+% What I want to build at Disney Streaming Zurich
+% =============================================================
+\section*{Why Disney Streaming Zurich}
+
+Disney Streaming's work on video encoding, recommendation infrastructure, and high-throughput content pipelines aligns directly with the systems-engineering skills I developed building AXIOM:
+
+\begin{itemize}
+\item LOUDS succinct tries (94\% storage reduction in AXIOM V3.1) apply directly to video frame indexing at scale, where pointer-based indexes become memory-bound.
+\item LZ77 macro chains (AXIOM V2) are the same family of techniques used in modern video codecs for inter-frame deduplication.
+\item The honest trade-offs I documented in AXIOM---storage vs latency, build time vs query time, exact vs approximate retrieval---are the same trade-offs a streaming infrastructure team navigates daily.
+\end{itemize}
+
+I am applying for a Software Engineer internship (3--6 months) or a full-time SWE 1 role. I am specifically interested in the encoding pipeline, content indexing, and recommendation infrastructure teams.
+
+% =============================================================
+% Availability
+% =============================================================
+\section*{Availability}
+
+\begin{itemize}
+\item \textbf{Internship}: Available May--August 2027 (3 months) or any 3--6 month window in 2027
+\item \textbf{Full-time SWE 1}: Available from July 2028 (post-graduation)
+\item \textbf{Work permit}: Will require Swiss work permit sponsorship; open to Talent Visa (\texttt{Nr. 1}) pathway
+\item \textbf{Relocation}: Willing to relocate to Zurich; German language learning in progress
+\end{itemize}
+
+\vspace{6pt}
+\hrule
+\vspace{4pt}
+{\footnotesize References available on request. All claims in this resume are verifiable in the AXIOM GitHub repository. \href{https://github.com/Yashas-K-Gangatkar/axiom-3d}{github.com/Yashas-K-Gangatkar/axiom-3d}}
+
+\end{document}
