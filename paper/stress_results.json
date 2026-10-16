@@ -1,0 +1,8 @@
+{
+  "axiom3d_stress_test": true,
+  "results": [
+    {"label":"1 MB corpus","src_bytes":1048576,"v1_nodes":8222675,"v1_file_bytes":222199154,"v1_dedup_pct":1.9781,"v1_bloat_ratio":0.9802,"v2_macros":60088,"v2_macro_bytes":744443,"v2_file_bytes":1768963,"v2_ratio_vs_raw":1.6870,"v2_ratio_vs_v1":0.0080,"v1_needle_found":true,"v2_needle_found":true,"v1_deep_found":true,"v2_deep_found":true,"v1_halluc_rate":0.0000,"v2_halluc_rate":0.0000},
+    {"label":"10 MB corpus","src_bytes":10485760,"v1_nodes":81605203,"v1_file_bytes":2205831098,"v1_dedup_pct":2.7190,"v1_bloat_ratio":0.9728,"v2_macros":564771,"v2_macro_bytes":8012193,"v2_file_bytes":15991464,"v2_ratio_vs_raw":1.5251,"v2_ratio_vs_v1":0.0072,"v1_needle_found":true,"v2_needle_found":true,"v1_deep_found":true,"v2_deep_found":true,"v1_halluc_rate":0.0000,"v2_halluc_rate":0.0000},
+    {"label":"100 MB corpus","src_bytes":104857600,"v1_nodes":0,"v1_file_bytes":0,"v1_dedup_pct":0.0000,"v1_bloat_ratio":0.0000,"v2_macros":1750063,"v2_macro_bytes":61480623,"v2_file_bytes":89827628,"v2_ratio_vs_raw":0.8567,"v2_ratio_vs_v1":0.0000,"v1_needle_found":false,"v2_needle_found":true,"v1_deep_found":false,"v2_deep_found":true,"v1_halluc_rate":100.0000,"v2_halluc_rate":0.0000}
+  ]
+}

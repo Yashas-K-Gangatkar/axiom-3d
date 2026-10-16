@@ -1,0 +1,19 @@
+[package]
+name = "axiom"
+version = "0.1.0"
+edition = "2021"
+authors = ["Yashas K <yashask2006@gmail.com>"]
+license = "PolyForm-Noncommercial-1.0.0"
+description = "AXIOM: A Binary Substring Graph for Zero-Error Retrieval"
+repository = "https://github.com/Yashas-K-Gangatkar/axiom"
+keywords = ["retrieval", "lz77", "exact-match", "rag", "hallucination"]
+categories = ["data-structures", "algorithms", "text-processing"]
+
+[[bin]]
+name = "axiom_stress"
+path = "src/bin/axiom_stress.rs"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

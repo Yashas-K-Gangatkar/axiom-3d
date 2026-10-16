@@ -1,0 +1,114 @@
+{
+  "compressor_benchmarks": [
+    {
+      "corpus": "corpus_1mb",
+      "compressor": "gzip",
+      "src_bytes": 1048576,
+      "out_bytes": 382703,
+      "ratio": 0.364974,
+      "time_s": 0.091
+    },
+    {
+      "corpus": "corpus_1mb",
+      "compressor": "xz",
+      "src_bytes": 1048576,
+      "out_bytes": 277664,
+      "ratio": 0.264801,
+      "time_s": 0.3861
+    },
+    {
+      "corpus": "corpus_1mb",
+      "compressor": "bzip2",
+      "src_bytes": 1048576,
+      "out_bytes": 278120,
+      "ratio": 0.265236,
+      "time_s": 0.101
+    },
+    {
+      "corpus": "corpus_10mb",
+      "compressor": "gzip",
+      "src_bytes": 10485760,
+      "out_bytes": 3937219,
+      "ratio": 0.375482,
+      "time_s": 0.9083
+    },
+    {
+      "corpus": "corpus_10mb",
+      "compressor": "xz",
+      "src_bytes": 10485760,
+      "out_bytes": 2322340,
+      "ratio": 0.221476,
+      "time_s": 7.5617
+    },
+    {
+      "corpus": "corpus_10mb",
+      "compressor": "bzip2",
+      "src_bytes": 10485760,
+      "out_bytes": 2935214,
+      "ratio": 0.279924,
+      "time_s": 0.9749
+    },
+    {
+      "corpus": "corpus_100mb",
+      "compressor": "gzip",
+      "src_bytes": 104857600,
+      "out_bytes": 39500297,
+      "ratio": 0.376704,
+      "time_s": 9.0903
+    },
+    {
+      "corpus": "corpus_100mb",
+      "compressor": "xz",
+      "src_bytes": 104857600,
+      "out_bytes": 2336064,
+      "ratio": 0.022278,
+      "time_s": 75.7702
+    },
+    {
+      "corpus": "corpus_100mb",
+      "compressor": "bzip2",
+      "src_bytes": 104857600,
+      "out_bytes": 29588505,
+      "ratio": 0.282178,
+      "time_s": 9.7696
+    }
+  ],
+  "axiom_v2_for_comparison": {
+    "corpus_1mb": {
+      "out_bytes": 1768963,
+      "ratio": 1.687,
+      "build_s": 0.083
+    },
+    "corpus_10mb": {
+      "out_bytes": 15991464,
+      "ratio": 1.5251,
+      "build_s": 1.49
+    },
+    "corpus_100mb": {
+      "out_bytes": 89827628,
+      "ratio": 0.8567,
+      "build_s": 16.49
+    }
+  },
+  "methodology": {
+    "compressors_tested": [
+      "gzip",
+      "xz",
+      "bzip2"
+    ],
+    "compressor_flags": "-9 -c (max compression, stdout)",
+    "corpora": [
+      "corpus_1mb",
+      "corpus_10mb",
+      "corpus_100mb"
+    ],
+    "corpus_source": "Project Gutenberg public-domain books, concatenated",
+    "corpus_unique_bytes": 8361920,
+    "corpus_repetition_1mb": "100% unique (subset of unique books)",
+    "corpus_repetition_10mb": "79% unique (full 8.36MB books repeated to 10MB)",
+    "corpus_repetition_100mb": "7% unique (books repeated 12x to 100MB)",
+    "timing_method": "Python time.perf_counter() around subprocess.run()",
+    "size_method": "len(compressed_bytes) from subprocess stdout",
+    "platform": "Linux, single-threaded"
+  }
+}
